@@ -56,10 +56,10 @@ class MongoDB(object):
             list_of_entries.append(obj)
         return list_of_entries
 
-    def get_entries_of_collection(self):
+    def get_entries_of_collection(self, limit):
         """Get the list of entries of the collection"""
         list_of_entries = list()
-        cursor = self.collection.find()
+        cursor = self.collection.find().limit(limit)
         for obj in cursor:
             list_of_entries.append(obj)
         return list_of_entries
