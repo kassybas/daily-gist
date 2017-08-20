@@ -21,7 +21,7 @@ def get_configuration():
     return yaml.load(f)
 
 def update_db(entries):
-    database = db.MongoDB()
+    database = db.MongoDB("reddit", "entries")
     database.put_list_of_entries_to_db(entries)
 
 
