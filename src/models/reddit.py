@@ -1,9 +1,8 @@
-import json
 import requests
 import pprint
 import datetime
 import os
-import yaml
+import sys
 
 
 MINIMUM_SCORE = 100
@@ -25,7 +24,7 @@ class Reddit(object):
         response = requests.post("https://www.reddit.com/api/v1/access_token", auth=client_auth, data=post_data, headers=headers)
         return response.json()["access_token"]
 
-    def __init__(self, subreddit_list, sort='top', time='week', number_of_links=20):
+    def __init__(self, subreddit_list, sort='top', time='day', number_of_links=20):
         self.conf = self.get_configuration()
         self.access_token=self.__get_new_reddit_token_value()
         self.subreddit_list=subreddit_list
@@ -54,18 +53,23 @@ class Reddit(object):
             return 'picture'
         if url.endswith(video_ext):
             return 'video'
-        return 'unknown'
+        return 'other'
 
     def structure_item(self, item, subreddit):
         url=item["data"]["url"]
         title=item["data"]["title"]
         score=item["data"]["score"]
+        pic=item["data"]["thumbnail"]
+        description = item["data"]["selftext"]
+        date = datetime.datetime.today().isoformat()
         object_type = self.determine_type(url)
         log_msg = str(datetime.datetime.now().isoformat())+": Pulled from reddit"
         structured_item = {
                 'url' : url,
-                'subreddit' : subreddit,
+                'description' : description,
+                'picture' : pic,
                 'score' : score,
+                'date' : date,
                 'title' : title,
                 'uploaded': False,
                 'last_status': log_msg,
