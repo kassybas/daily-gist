@@ -1,0 +1,7 @@
+src/run/data/*
+venv/*
+*DS_Store*
+.idea/*
+*.pyc
+*.swp
+secrets/**
