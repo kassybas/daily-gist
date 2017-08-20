@@ -1,8 +1,7 @@
 import requests
-import pprint
 import datetime
 import os
-import sys
+from webpreview import web_preview
 
 
 MINIMUM_SCORE = 100
