@@ -1,4 +1,6 @@
 # daily-gist
+[![circleci build](https://img.shields.io/circleci/project/github/kassybas/daily-gist.svg)](https://circleci.com/gh/kassybas/daily-gist/)
+
 ## About
 This project is gonna be used for a neat, daily news website. WORK IN PROGRESS.
 
