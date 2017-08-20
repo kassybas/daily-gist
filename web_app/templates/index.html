@@ -4,9 +4,18 @@
 <h1> DAILY GIST </h1>
 <h3>Here are the news</h3>
       <div class="row">
-        <div class="col-md-4">{{ user.name }} </div>
-        <div class="col-md-4">{{ user.name }} </div>
-        <div class="col-md-4">{{ user.name }} </div>
+        <div class="col-md-4">
+           <img src="{{news[0].picture}}" class="img-rounded" width="100" height="100">
+            <p>{{ news[0].title }} </p>
+        </div>
+        <div class="col-md-4">
+                   <img src="{{news[1].picture}}" class="img-rounded" width="100" height="100">
+            <p>{{ news[1].title }} </p>
+        </div>
+        <div class="col-md-4">
+                       <img src="{{news[2].picture}}" class="img-rounded" width="100" height="100">
+            <p>{{ news[2].title }} </p>
+        </div>
       </div>
 
 {% endblock %}
