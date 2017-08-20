@@ -84,7 +84,7 @@ class Reddit(object):
         data = list()
         for subreddit in self.subreddit_list:
             after=''
-            for count in xrange(0, self.number_of_links, 100):
+            for count in range(0, self.number_of_links, 100):
                 raw_data = self.get_posts_from_subreddit(subreddit, after)
                 data.extend(self.structure_collected_data(raw_data, subreddit))
                 after = self.get_after_value(raw_data)
