@@ -17,6 +17,4 @@ This project is gonna be used for a neat, daily news website. WORK IN PROGRESS.
 
 6. Setup the [MongoDB](https://docs.mongodb.com/manual/installation/)
 
-7. Create a DB named `my_data` with collection named `links`
-
-8. You are ready to develop!
+7. You are ready to develop!
