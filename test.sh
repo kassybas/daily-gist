@@ -1,4 +1,4 @@
 #!/bin/bash
 
-envsubst < config.yaml.dist  > config.yaml
+envsubst < secrets/config.yaml.dist  > secrets/config.yaml
 python3 src/reddit_runner.py
