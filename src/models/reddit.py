@@ -57,11 +57,9 @@ class Reddit(object):
 
     def structure_item(self, item, subreddit):
         url=item["data"]["url"]
-        title=item["data"]["title"]
+        title, description, pic = web_preview(url, timeout=1000)
         score=item["data"]["score"]
         subreddit=item["data"]["subreddit"]
-        pic=item["data"]["thumbnail"]
-        description = item["data"]["selftext"]
         date = datetime.datetime.today().isoformat()
         object_type = self.determine_type(url)
         log_msg = str(datetime.datetime.now().isoformat())+": Pulled from reddit"
