@@ -43,7 +43,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            echo "Dummy"
+            ./test.sh
 
       - store_artifacts:
           path: test-reports
