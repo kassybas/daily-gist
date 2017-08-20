@@ -10,9 +10,13 @@ MINIMUM_SCORE = 100
 
 class Reddit(object):
     def get_configuration(self):
-        current_path = os.path.dirname(__file__)
-        f = open(current_path + "/../../secrets/config.yaml", "r")
-        return yaml.load(f)
+        conf = {}
+        conf['token_user'] = os.environ['TOKEN_USER']
+        conf['token_pw'] = os.environ['TOKEN_PW']
+        conf['username'] = os.environ['USERNAME']
+        conf['password'] = os.environ['PASSWORD']
+        conf['user_agent'] = os.environ['USER_AGENT']
+        return conf
 
     def __get_new_reddit_token_value(self):
         client_auth = requests.auth.HTTPBasicAuth(self.conf['token_user'], self.conf['token_pw'])
@@ -22,7 +26,7 @@ class Reddit(object):
         return response.json()["access_token"]
 
     def __init__(self, subreddit_list, sort='top', time='week', number_of_links=20):
-        self.conf = self.get_configuration()['reddit']
+        self.conf = self.get_configuration()
         self.access_token=self.__get_new_reddit_token_value()
         self.subreddit_list=subreddit_list
         self.sort=sort
