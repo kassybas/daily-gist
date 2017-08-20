@@ -59,6 +59,7 @@ class Reddit(object):
         url=item["data"]["url"]
         title=item["data"]["title"]
         score=item["data"]["score"]
+        subreddit=item["data"]["subreddit"]
         pic=item["data"]["thumbnail"]
         description = item["data"]["selftext"]
         date = datetime.datetime.today().isoformat()
@@ -66,6 +67,7 @@ class Reddit(object):
         log_msg = str(datetime.datetime.now().isoformat())+": Pulled from reddit"
         structured_item = {
                 'url' : url,
+                'subreddit' : subreddit,
                 'description' : description,
                 'picture' : pic,
                 'score' : score,
