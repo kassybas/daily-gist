@@ -21,6 +21,8 @@ class Reddit(object):
         post_data = {"grant_type": "password", "username": self.conf['username'], "password": self.conf['password']}
         headers = {"User-Agent": self.conf['user_agent'] }
         response = requests.post("https://www.reddit.com/api/v1/access_token", auth=client_auth, data=post_data, headers=headers)
+
+
         return response.json()["access_token"]
 
     def __init__(self, subreddit_list, sort='top', time='day', number_of_links=20):

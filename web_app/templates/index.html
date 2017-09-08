@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body  %}
+
+<h1> DAILY GIST </h1>
+      <div class="row">
+          {% for i in news %}
+        <div class="col-md-4">
+           <img src="{{i.picture}}" class="img-rounded center-block" width="300" height="210">
+            <h4><b><a href="{{i.url}}">{{ i.title }}</a></b></h4>
+            <p>{{ i.description }} </p>
+        </div>
+          {% endfor %}
+      </div>
+
+{% endblock %}
